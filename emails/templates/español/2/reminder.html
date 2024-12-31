@@ -1,0 +1,28 @@
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Recordatorio de Pago Pendiente</title>
+    </head>
+        <body style="font-family: Arial, sans-serif; text-align: left; padding: 20px; color: black;">
+
+                <div style="font-family: Arial, sans-serif; text-align: left; padding: 20px;">
+                    <h2>Estimado {nombre_colegio},</h2>
+                    <p>Queremos recordarle que tiene un saldo pendiente con nuestra empresa:</p>
+                    <ul>
+                        <li><strong>Monto adeudado:</strong> {signo}{cantidad_deuda:.2f}</li>
+                        <li><strong>Producto entregado:</strong> {producto_entregado}</li>
+                        <li><strong>Fecha de entrega:</strong> {fecha_entrega}</li>
+                    </ul>
+                    <p>
+                        Por favor, póngase en contacto con nosotros para regularizar su situación y evitar que el caso sea escalado a instancias legales.
+                    </p>
+                    <p>Atentamente,<br>James Miller,<br><strong>Logotex Panamá S.A.</strong></p>
+                    <img src="cid:logo" alt="Logotex Logo" style="display: block; margin-top: 20px;"/>
+                </div>
+                <footer style="text-align: center; margin-top: 20px;">
+                    <img src="cid:footer_image" alt="Pie de página" style="width: 100%; max-width: 600px;"/>
+                </footer>
+            </body>
+            </html>
+
