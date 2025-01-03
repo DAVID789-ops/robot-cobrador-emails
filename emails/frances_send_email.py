@@ -68,10 +68,10 @@ def enviar_correos(deudas):
             
 
             for deuda in deudas:
-                nombre_colegio, cantidad_deuda, producto_entregado, fecha_entrega, email_contacto, signo, intensidad, idioma, tiempo, pdf_documento = deuda
+                nombre_colegio, cantidad_deuda, producto_entregado, fecha_entrega, email_contacto, signo, intensidad, idioma, tiempo, pdf_documento, cobrar = deuda
 
                 # Verificar las condiciones para enviar el correo (intensidad 2, frances, tiempo 3)
-                if intensidad == 1 and idioma.lower() == "frances" and tiempo == 3:
+                if intensidad == 1 and idioma.lower() == "frances" and tiempo == 3 and cobrar == True:
                     
                     # Crear el mensaje del correo
                     mensaje = MIMEMultipart()
@@ -146,10 +146,10 @@ def enviar_correos(deudas):
             
 
             for deuda in deudas:
-                nombre_colegio, cantidad_deuda, producto_entregado, fecha_entrega, email_contacto, signo, intensidad, idioma, tiempo, pdf_documento = deuda
+                nombre_colegio, cantidad_deuda, producto_entregado, fecha_entrega, email_contacto, signo, intensidad, idioma, tiempo, pdf_documento, cobrar = deuda
 
                 # Verificar las condiciones para enviar el correo (intensidad 1, frances, tiempo 2)
-                if intensidad == 1 and idioma.lower() == "frances" and tiempo == 2:
+                if intensidad == 1 and idioma.lower() == "frances" and tiempo == 2 and cobrar == True:
                     
                     # Crear el mensaje del correo
                     mensaje = MIMEMultipart()
@@ -220,10 +220,10 @@ def enviar_correos(deudas):
             
 
             for deuda in deudas:
-                nombre_colegio, cantidad_deuda, producto_entregado, fecha_entrega, email_contacto, signo, intensidad, idioma, tiempo, pdf_documento = deuda
+                nombre_colegio, cantidad_deuda, producto_entregado, fecha_entrega, email_contacto, signo, intensidad, idioma, tiempo, pdf_documento, cobrar = deuda
 
                 # Verificar las condiciones para enviar el correo (intensidad 1, frances, tiempo 2)
-                if intensidad == 1 and idioma.lower() == "frances" and tiempo == 1:
+                if intensidad == 1 and idioma.lower() == "frances" and tiempo == 1 and cobrar == True:
                     
                     # Crear el mensaje del correo
                     mensaje = MIMEMultipart()
@@ -315,10 +315,10 @@ def enviar_correos(deudas):
             
 
             for deuda in deudas:
-                nombre_colegio, cantidad_deuda, producto_entregado, fecha_entrega, email_contacto, signo, intensidad, idioma, tiempo, pdf_documento = deuda
+                nombre_colegio, cantidad_deuda, producto_entregado, fecha_entrega, email_contacto, signo, intensidad, idioma, tiempo, pdf_documento, cobrar = deuda
 
                 # Verificar las condiciones para enviar el correo (intensidad 2, frances, tiempo 3)
-                if intensidad == 2 and idioma.lower() == "frances" and tiempo == 3:
+                if intensidad == 2 and idioma.lower() == "frances" and tiempo == 3 and cobrar == True:
                     
                     # Crear el mensaje del correo
                     mensaje = MIMEMultipart()
@@ -393,10 +393,10 @@ def enviar_correos(deudas):
             
 
             for deuda in deudas:
-                nombre_colegio, cantidad_deuda, producto_entregado, fecha_entrega, email_contacto, signo, intensidad, idioma, tiempo, pdf_documento = deuda
+                nombre_colegio, cantidad_deuda, producto_entregado, fecha_entrega, email_contacto, signo, intensidad, idioma, tiempo, pdf_documento, cobrar = deuda
 
                 # Verificar las condiciones para enviar el correo (intensidad 2, frances, tiempo 2)
-                if intensidad == 2 and idioma.lower() == "frances" and tiempo == 2:
+                if intensidad == 2 and idioma.lower() == "frances" and tiempo == 2 and cobrar == True:
                     
                     # Crear el mensaje del correo
                     mensaje = MIMEMultipart()
@@ -467,10 +467,10 @@ def enviar_correos(deudas):
             
 
             for deuda in deudas:
-                nombre_colegio, cantidad_deuda, producto_entregado, fecha_entrega, email_contacto, signo, intensidad, idioma, tiempo, pdf_documento = deuda
+                nombre_colegio, cantidad_deuda, producto_entregado, fecha_entrega, email_contacto, signo, intensidad, idioma, tiempo, pdf_documento, cobrar = deuda
 
                 # Verificar las condiciones para enviar el correo (intensidad 2, frances, tiempo 2)
-                if intensidad == 2 and idioma.lower() == "frances" and tiempo == 1:
+                if intensidad == 2 and idioma.lower() == "frances" and tiempo == 1 and cobrar == True:
                     
                     # Crear el mensaje del correo
                     mensaje = MIMEMultipart()
