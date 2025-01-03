@@ -1,0 +1,28 @@
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Payment Reminder</title>
+    </head>
+    <body style="font-family: Arial, sans-serif; text-align: left; padding: 20px; color: black;">
+
+        <div style="font-family: Arial, sans-serif; text-align: left; padding: 20px;">
+            <h2>Dear {nombre_colegio},</h2>
+            <p>We would like to remind you that you have an outstanding balance with our company:</p>
+            <ul>
+                <li><strong>Amount owed:</strong> {signo}{cantidad_deuda:.2f}</li>
+                <li><strong>Product delivered:</strong> {producto_entregado}</li>
+                <li><strong>Delivery date:</strong> {fecha_entrega}</li>
+            </ul>
+            <p>
+                Please contact us to regularize your situation and prevent the case from being escalated to legal authorities.
+            </p>
+            <p>Best regards,<br>James Miller,<br><strong>Logotex Panamá S.A.</strong></p>
+                <img src="cid:logo" alt="Logotex Logo" style="display: block; margin-top: 20px;"/>
+        </div>
+    <footer style="text-align: center; margin-top: 20px;">
+        <img src="cid:footer_image" alt="Pie de página" style="width: 100%; max-width: 600px;"/>
+    </footer>
+    </body>
+</html>
+
