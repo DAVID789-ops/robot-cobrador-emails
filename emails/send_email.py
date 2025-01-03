@@ -122,3 +122,78 @@ def enviar_correos(deudas):
 
         except Exception as e:
             print(f"Error al enviar correos (tercer intento): {e}")
+
+
+    # Intento de otra condicional
+
+    if dia_semana in [1, 3]:
+        print("Hoy es martes y jueves. Se procederá con el tercer intento.")
+        
+        try:
+            # Conexión al servidor SMTP
+            servidor = smtplib.SMTP_SSL(EMAIL_CONFIG["SMTP_SERVER"], EMAIL_CONFIG["SMTP_PORT"])
+            servidor.login(EMAIL_CONFIG["USER"], EMAIL_CONFIG["PASSWORD"])
+            
+
+            for deuda in deudas:
+                nombre_colegio, cantidad_deuda, producto_entregado, fecha_entrega, email_contacto, signo, intensidad, idioma, tiempo, pdf_documento = deuda
+
+                # Verificar las condiciones para enviar el correo (intensidad 2, español, tiempo 3)
+                if intensidad == 2 and idioma.lower() == "espanol" and tiempo == 3:
+                    
+                    # Crear el mensaje del correo
+                    mensaje = MIMEMultipart()
+                    mensaje["From"] = EMAIL_CONFIG["USER"]
+                    mensaje["To"] = email_contacto
+                    mensaje["Subject"] = f"Recordatorio de Pago Pendiente - {nombre_colegio}"
+
+                    # Cargar el contenido HTML del correo
+                    with open("emails/templates/español/2/reminder.html", "r", encoding="utf-8") as f:
+                        html = f.read().format(
+                            nombre_colegio=nombre_colegio,
+                            cantidad_deuda=cantidad_deuda,
+                            producto_entregado=producto_entregado,
+                            fecha_entrega=fecha_entrega,
+                            signo=signo
+                        )
+
+                    mensaje.attach(MIMEText(html, "html", _charset="utf-8"))
+
+                    # Adjuntar el logo al correo
+                    with open("emails/templates/español/2/logo.png", "rb") as img:
+                        logo = MIMEImage(img.read())
+                        logo.add_header("Content-ID", "<logo>")
+                        mensaje.attach(logo)
+
+                    # Adjuntar la imagen del pie de página
+                    with open("emails/templates/español/2/footer_image.png", "rb") as img:
+                        footer_image = MIMEImage(img.read())
+                        footer_image.add_header("Content-ID", "<footer_image>")
+                        mensaje.attach(footer_image)
+
+                    # Si se proporciona un documento PDF, descargarlo y adjuntarlo
+                    if pdf_documento:
+                        pdf_file_name = "documento_deuda.pdf"
+                        archivo_pdf = descargar_pdf(pdf_documento, pdf_file_name)
+
+                        if archivo_pdf:
+                            # Adjuntar el archivo PDF al correo
+                            with open(archivo_pdf, "rb") as archivo:
+                                adjunto_pdf = MIMEBase("application", "octet-stream")
+                                adjunto_pdf.set_payload(archivo.read())
+                                encoders.encode_base64(adjunto_pdf)
+                                adjunto_pdf.add_header("Content-Disposition", f"attachment; filename={pdf_file_name}")
+                                mensaje.attach(adjunto_pdf)
+
+                            # Eliminar el archivo PDF después de enviarlo
+                            os.remove(archivo_pdf)
+
+                    # Enviar el correo
+                    servidor.sendmail(EMAIL_CONFIG["USER"], email_contacto, mensaje.as_string())
+                    print(f"Correo enviado a {nombre_colegio} ({email_contacto})")
+
+            # Cerrar la conexión con el servidor SMTP
+            servidor.quit()
+
+        except Exception as e:
+            print(f"Error al enviar correos (tercer intento): {e}")
