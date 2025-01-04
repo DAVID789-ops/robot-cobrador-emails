@@ -7,3 +7,4 @@ def obtener_deudas():
     registros = cursor.fetchall()
     conn.close()
     return registros
+

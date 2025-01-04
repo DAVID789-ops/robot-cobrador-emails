@@ -11,3 +11,10 @@ EMAIL_CONFIG = {
     "USER": "cobros@logotexpanama.com",
     "PASSWORD": "J%@)]YJ5zMXw"
 }
+
+EMAIL_CONFIG_MARKETING = {
+    "SMTP_SERVER": "mail.logotexpanama.com",
+    "SMTP_PORT": 465,
+    "USER": "admin@logotexpanama.com",
+    "PASSWORD": "Jkkdl#^mi4%7"
+}
