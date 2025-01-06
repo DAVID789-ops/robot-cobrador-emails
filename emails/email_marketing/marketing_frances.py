@@ -21,10 +21,10 @@ def enviar_correos(marketing):
 
     # Cargar la plantilla HTML y recursos una vez
     try:
-        with open("emails/templates/español/marketing/carta.html", "r", encoding="utf-8") as f:
+        with open("emails/templates/marketing/frances/carta.html", "r", encoding="utf-8") as f:
             plantilla_html = f.read()
 
-        with open("emails/templates/español/marketing/logo.png", "rb") as img:
+        with open("emails/templates/marketing/frances/logo.png", "rb") as img:
             logo = MIMEImage(img.read())
             logo.add_header("Content-ID", "<logo>")
       
@@ -36,7 +36,7 @@ def enviar_correos(marketing):
                 nombre_colegio, email_contacto, idioma, email_marketing = item
 
                 # Comprobar si el idioma es español y el marketing está habilitado
-                if idioma.lower() == "espanol" and email_marketing:
+                if idioma.lower() == "frances" and email_marketing:
                     # Personalizar el mensaje HTML
                     html = plantilla_html.format(nombre_colegio=nombre_colegio)
 
